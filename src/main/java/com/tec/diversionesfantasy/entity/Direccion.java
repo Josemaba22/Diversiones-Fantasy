@@ -1,5 +1,6 @@
 package com.tec.diversionesfantasy.entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,17 +17,24 @@ public class Direccion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "colonia")
 	private String colonia;
 	
+	@Column(name = "calle1")
 	private String calle1;
 	
+	@Column(name = "calle2")
 	private String calle2;
 	
+	@Column(name = "numero_interior")
 	private int numero_interior;
 	
+	@Column(name = "numero_exterior")
 	private int numero_exterior;
 	
+	@Column(name = "descripcion")
 	private String descripcion;
+	
 	
 	public Direccion() {}
 

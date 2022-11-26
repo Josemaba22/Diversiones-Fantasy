@@ -14,13 +14,13 @@ public class DireccionService {
 	
 	public Direccion addDireccion(DireccionRequest direccionRequest) {
 		Direccion direccion = new Direccion();
-		direccion.setId(direccionRequest.getId());
-		direccion.setColonia(direccionRequest.getColonia());
-		direccion.setCalle1(direccionRequest.getCalle1());
-		direccion.setCalle2(direccionRequest.getCalle2());
-		direccion.setNumero_interior(direccionRequest.getNumero_interior());
-		direccion.setNumero_exterior(direccionRequest.getNumero_exterior());
-		direccion.setDescripcion(direccionRequest.getDescripcion());
+		direccion.setId(direccionRequest.id);
+		direccion.setColonia(direccionRequest.colonia);
+		direccion.setCalle1(direccionRequest.calle1);
+		direccion.setCalle2(direccionRequest.calle2);
+		direccion.setNumero_interior(direccionRequest.numero_interior);
+		direccion.setNumero_exterior(direccionRequest.numero_exterior);
+		direccion.setDescripcion(direccionRequest.descripcion);
 		return direccionRepository.save(direccion);
 	}
 	

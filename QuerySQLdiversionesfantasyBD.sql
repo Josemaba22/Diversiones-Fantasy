@@ -1,4 +1,4 @@
-#CREATE DATABASE 
+#CREATE DATABASE diversionesfantasy; 
 #DROP DATABASE diversionesfantasy;
 
 #---------------------------------------------------+
@@ -92,7 +92,8 @@ CREATE TABLE empleados(
     direccion_id int not null,
     sueldo numeric(10,2) not null,
     fecha_nacimiento date not null,
-    fehca_contratacion date not null,
+    fecha_contratacion date not null,
+    sexo char(1) not null,
     rol varchar(200) not null
 );
 
@@ -112,13 +113,14 @@ CREATE TABLE pedidos(
 	id int not null auto_increment unique,
     fecha_creacion date not null,
     fecha_entrega date not null,
+    fecha_recoleccion date not null,
     direccion_id int not null,
     consumidor_id int not null,
     transportista_id int not null,
     admin_id int not null,
     estatus varchar(200) not null,
     descripcion varchar(5000),
-    descripcionDaños varchar(5000)
+    descripcion_daños varchar(5000)
 );
 
 # CONSTRAINT PEDIDOS
