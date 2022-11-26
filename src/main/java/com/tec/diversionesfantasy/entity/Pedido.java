@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
 @Table(name = "pedidos")
@@ -25,13 +27,15 @@ public class Pedido implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "fecha_inicio")
-	private Date fecha_inicio;
+	@Column(name = "fecha_creacion")
+	private Date fecha_creacion;
 	
 	@Column(name = "fecha_entrega")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date fecha_entrega;
 	
 	@Column(name = "fecha_recoleccion")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date fecha_recoleccion;
 	
 	@Column(name = "direccion_id")
@@ -58,8 +62,6 @@ public class Pedido implements Serializable{
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido")  
     private Set<DetallePedido> detalle_pedidos = new HashSet<>();
 	
-	
-	
 	public int getConsumidor_id() {
 		return consumidor_id;
 	}
@@ -76,20 +78,20 @@ public class Pedido implements Serializable{
 		this.detalle_pedidos = detalle_pedidos;
 	}
 
+	public Date getFecha_creacion() {
+		return fecha_creacion;
+	}
+
+	public void setFecha_creacion(Date fecha_creacion) {
+		this.fecha_creacion = fecha_creacion;
+	}
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Date getFecha_inicio() {
-		return fecha_inicio;
-	}
-
-	public void setFecha_inicio(Date fecha_inicio) {
-		this.fecha_inicio = fecha_inicio;
 	}
 
 	public Date getFecha_entrega() {
