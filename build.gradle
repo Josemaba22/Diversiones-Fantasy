@@ -34,7 +34,7 @@ implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.
     
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
+//tasks.named('test') {
+//	useJUnitPlatform()
+//}
 
