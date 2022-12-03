@@ -1,6 +1,6 @@
 package com.tec.diversionesfantasy.request;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -17,9 +17,32 @@ public class ConsumidorRequest {
 	private String telefono;
 	
 	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date fecha_nacimiento; 
+	private LocalDate fecha_nacimiento; 
 	
 	private char sexo;
+	
+	
+
+
+	public ConsumidorRequest(Long id, String nombre, String apellido, String email, String telefono,
+			LocalDate fecha_nacimiento, char sexo) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.telefono = telefono;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.sexo = sexo;
+	}
+
+	public LocalDate getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+
+	public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
 
 	public Long getId() {
 		return id;
@@ -61,13 +84,6 @@ public class ConsumidorRequest {
 		this.telefono = telefono;
 	}
 
-	public Date getFecha_nacimiento() {
-		return fecha_nacimiento;
-	}
-
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
-	}
 
 	public char getSexo() {
 		return sexo;

@@ -3,12 +3,11 @@ package com.tec.diversionesfantasy.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.tec.diversionesfantasy.entity.Consumidor;
+import com.tec.diversionesfantasy.entity.DetallePedido;
 
 @Repository
-public interface ConsumidorRepository extends JpaRepository<Consumidor, Long>{
+public interface DetallePedidoRepository extends JpaRepository<DetallePedido, Integer>{
 
-	public Consumidor findById(int id);
-	
+	DetallePedido findById(int id);
 	
 }
