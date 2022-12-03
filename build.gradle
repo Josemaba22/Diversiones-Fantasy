@@ -28,11 +28,13 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
-    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
     
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
