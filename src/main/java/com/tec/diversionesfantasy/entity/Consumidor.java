@@ -1,16 +1,21 @@
 package com.tec.diversionesfantasy.entity;
 
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Consumidores")
@@ -29,14 +34,19 @@ public class Consumidor {
 	
 	private String telefono;
 	
-	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date fecha_nacimiento; 
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private LocalDate fecha_nacimiento; 
 	
 	private char sexo;
 	
+	@JsonIgnore
+	@OneToMany
+	@JoinColumn(name = "consumidor")
+	private Set<Pedido> pedidos = new HashSet<>();
+	
 	public Consumidor() {}
 
-	public Consumidor(Long id, String nombre, String apellido, String email, String telefono, Date fecha_nacimiento,
+	public Consumidor(Long id, String nombre, String apellido, String email, String telefono, LocalDate fecha_nacimiento,
 			char sexo) {
 		super();
 		this.id = id;
@@ -46,6 +56,16 @@ public class Consumidor {
 		this.telefono = telefono;
 		this.fecha_nacimiento = fecha_nacimiento;
 		this.sexo = sexo;
+	}
+	
+	
+
+	public LocalDate getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+
+	public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
 	public Long getId() {
@@ -88,13 +108,6 @@ public class Consumidor {
 		this.telefono = telefono;
 	}
 
-	public Date getFecha_nacimiento() {
-		return fecha_nacimiento;
-	}
-
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
-	}
 
 	public char getSexo() {
 		return sexo;

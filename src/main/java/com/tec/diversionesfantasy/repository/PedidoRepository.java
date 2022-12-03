@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.tec.diversionesfantasy.entity.Pedido;
 
 @Repository
-public interface PedidoRepository extends JpaRepository<Pedido, Integer>{
+public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 
 	public Pedido findById(int id);
 	

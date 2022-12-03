@@ -10,6 +10,7 @@ CREATE TABLE direcciones(
     colonia varchar(200) not null,
     calle1 varchar(200) not null,
     calle2 varchar(200) not null,
+    codigo_postal int not null,
     numero_interior int not null,
     numero_exterior int not null,
     descripcion varchar(1000) 
@@ -64,7 +65,7 @@ CONSTRAINT pk_categorias PRIMARY KEY(id);
 CREATE TABLE mobiliarios(
 	id int not null auto_increment unique,
     nombre varchar(200) not null,
-    precio_unitario numeric(10,2) not null,
+    precio_unitario float not null,
     existencia int not null,
     imagen varchar(1000),
     categoria_id int not null
@@ -90,7 +91,7 @@ CREATE TABLE empleados(
     password varchar(200) not null,
     telefono varchar(10) not null,
     direccion_id int not null,
-    sueldo numeric(10,2) not null,
+    sueldo float not null,
     fecha_nacimiento date not null,
     fecha_contratacion date not null,
     sexo char(1) not null,

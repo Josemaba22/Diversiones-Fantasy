@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tec.diversionesfantasy.pojo.DetallePedidoID;
 
 @Entity
@@ -23,10 +24,12 @@ public class DetallePedido {
 	private int cantidad;
 	private double precio_unitario;
 
+	@JsonIgnore
 	@ManyToOne
     @JoinColumn(name = "pedido_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Pedido pedido;
 	
+	@JsonIgnore
 	@ManyToOne
     @JoinColumn(name = "mobiliario_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Mobiliario mobiliario;

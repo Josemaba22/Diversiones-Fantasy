@@ -1,6 +1,8 @@
 package com.tec.diversionesfantasy.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,14 @@ public class MobiliarioService {
 	
 	@Autowired
 	CategoriaRepository categoriaRepository;
+	
+	public List<Mobiliario> getAllMobiliarios(){
+		return mobiliarioRepository.findAll();
+	}
+	
+	public Mobiliario getMobiliarioById(Long id) {
+		return mobiliarioRepository.findById(id).get();
+	}
 	
 	public Mobiliario addMobiliario(MobiliarioRequest request) {
 		Mobiliario mobiliario = new Mobiliario();

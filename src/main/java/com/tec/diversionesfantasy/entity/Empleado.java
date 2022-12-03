@@ -1,6 +1,8 @@
 package com.tec.diversionesfantasy.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,10 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Empleados")
@@ -49,11 +53,11 @@ public class Empleado {
 	
 	@JsonFormat(pattern="dd-MM-yyyy")
 	@Column(name = "fecha_nacimiento")
-	private Date fecha_nacimiento;
+	private LocalDate fecha_nacimiento;
 	
 	@JsonFormat(pattern="dd-MM-yyyy")
 	@Column(name = "fecha_contratacion")
-	private Date fecha_contratacion;
+	private LocalDate fecha_contratacion;
 	
 	@Column(name = "sexo")
 	private char sexo;
@@ -61,6 +65,15 @@ public class Empleado {
 	@Column(name = "rol")
 	private String rol;
 	
+	@JsonIgnore
+	@OneToMany
+	@JoinColumn(name = "transportista")
+	private Set<Pedido> pedidosTransportista = new HashSet<>();
+	
+	@JsonIgnore
+	@OneToMany
+	@JoinColumn(name = "administrador")
+	private Set<Pedido> pedidosAdmin = new HashSet<>();
 	
 
 	public char getSexo() {
@@ -143,19 +156,19 @@ public class Empleado {
 		this.sueldo = sueldo;
 	}
 
-	public Date getFecha_nacimiento() {
+	public LocalDate getFecha_nacimiento() {
 		return fecha_nacimiento;
 	}
 
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
+	public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
-	public Date getFecha_contratacion() {
+	public LocalDate getFecha_contratacion() {
 		return fecha_contratacion;
 	}
 
-	public void setFecha_contratacion(Date fecha_contratacion) {
+	public void setFecha_contratacion(LocalDate fecha_contratacion) {
 		this.fecha_contratacion = fecha_contratacion;
 	}
 

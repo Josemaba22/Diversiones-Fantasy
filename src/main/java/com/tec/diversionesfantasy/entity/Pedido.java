@@ -1,7 +1,7 @@
 package com.tec.diversionesfantasy.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,10 +11,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -28,15 +31,15 @@ public class Pedido implements Serializable{
 	private Long id;
 	
 	@Column(name = "fecha_creacion")
-	private Date fecha_creacion;
+	private LocalDate fecha_creacion;
 	
 	@Column(name = "fecha_entrega")
-	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date fecha_entrega;
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private LocalDate fecha_entrega;
 	
 	@Column(name = "fecha_recoleccion")
-	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date fecha_recoleccion;
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private LocalDate fecha_recoleccion;
 	
 	@Column(name = "direccion_id")
 	private int direccion_id;
@@ -45,7 +48,7 @@ public class Pedido implements Serializable{
 	private int consumidor_id;
 	
 	@Column(name = "transportista_id")
-	private int transportista;
+	private int transportista_id;
 	
 	@Column(name = "admin_id")
 	private int admin_id;
@@ -61,6 +64,22 @@ public class Pedido implements Serializable{
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido")  
     private Set<DetallePedido> detalle_pedidos = new HashSet<>();
+	
+	@ManyToOne
+	@JoinColumn(name = "direccion_id", insertable = false, updatable = false)
+	private Direccion direccion;
+	
+	@ManyToOne
+	@JoinColumn(name = "consumidor_id", insertable = false, updatable = false)
+	private Consumidor consumidor;
+	
+	@ManyToOne
+	@JoinColumn(name = "transportista_id", insertable = false, updatable = false)
+	private Empleado transportista;
+	
+	@ManyToOne
+	@JoinColumn(name = "admin_id", insertable = false, updatable = false)
+	private Empleado administrador;
 	
 	public int getConsumidor_id() {
 		return consumidor_id;
@@ -78,11 +97,11 @@ public class Pedido implements Serializable{
 		this.detalle_pedidos = detalle_pedidos;
 	}
 
-	public Date getFecha_creacion() {
+	public LocalDate getFecha_creacion() {
 		return fecha_creacion;
 	}
 
-	public void setFecha_creacion(Date fecha_creacion) {
+	public void setFecha_creacion(LocalDate fecha_creacion) {
 		this.fecha_creacion = fecha_creacion;
 	}
 
@@ -94,19 +113,19 @@ public class Pedido implements Serializable{
 		this.id = id;
 	}
 
-	public Date getFecha_entrega() {
+	public LocalDate getFecha_entrega() {
 		return fecha_entrega;
 	}
 
-	public void setFecha_entrega(Date fecha_entrega) {
+	public void setFecha_entrega(LocalDate fecha_entrega) {
 		this.fecha_entrega = fecha_entrega;
 	}
 
-	public Date getFecha_recoleccion() {
+	public LocalDate getFecha_recoleccion() {
 		return fecha_recoleccion;
 	}
 
-	public void setFecha_recoleccion(Date fecha_recoleccion) {
+	public void setFecha_recoleccion(LocalDate fecha_recoleccion) {
 		this.fecha_recoleccion = fecha_recoleccion;
 	}
 
@@ -126,12 +145,12 @@ public class Pedido implements Serializable{
 		this.consumidor_id = consumidor_id;
 	}
 
-	public int getTransportista() {
-		return transportista;
+	public int getTransportista_id() {
+		return transportista_id;
 	}
 
-	public void setTransportista(int transportista) {
-		this.transportista = transportista;
+	public void setTransportista_id(int transportista_id) {
+		this.transportista_id = transportista_id;
 	}
 
 	public int getAdmin_id() {

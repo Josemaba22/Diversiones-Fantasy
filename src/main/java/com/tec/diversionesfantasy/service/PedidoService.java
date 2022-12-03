@@ -1,7 +1,8 @@
 package com.tec.diversionesfantasy.service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +29,22 @@ public class PedidoService {
 	@Autowired
 	DetallePedidoRepository dpRepository;
 	
+	public List<Pedido> getAllPedidos(){
+		return pedidoRepository.findAll();
+	}
+	
+	public Pedido getPedidoById(Long id) {
+		return pedidoRepository.findById(id).get();
+	}
+	
 	public Pedido addPedido(PedidoRequest request) {
 		Pedido pedido = new Pedido();
 		pedido.setId(request.id);
-		pedido.setFecha_creacion(new Date());
+		pedido.setFecha_creacion(LocalDate.now());
 		pedido.setFecha_entrega(request.fecha_entrega);
 		pedido.setFecha_recoleccion(request.fecha_recoleccion);
 		pedido.setDireccion_id(request.direccion_id);
-		pedido.setTransportista(request.transportista_id);
+		pedido.setTransportista_id(request.transportista_id);
 		pedido.setAdmin_id(request.admin_id);
 		pedido.setCnsumidor_id(request.consumidor_id);
 		pedido.setEstatus("POR CONFIRMAR");
