@@ -1,5 +1,7 @@
 package com.tec.diversionesfantasy.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,14 @@ public class ConsumidorService {
 
 	@Autowired
 	ConsumidorRepository consumidorRepository;
+	
+	public List<Consumidor> getAllConsumidores(){
+		return consumidorRepository.findAll();
+	}
+	
+	public Consumidor getConsumidorById(Long id) {
+		return consumidorRepository.findById(id).get();
+	}
 	
 	public Consumidor addConsumidor(ConsumidorRequest consumidorRequest) {
 		Consumidor consumidor = new Consumidor();
