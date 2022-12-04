@@ -56,9 +56,6 @@ public class Categoria {
 		this.nombre = nombre;
 	}
 
-	public String getDescription() {
-		return descripcion;
-	}
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;

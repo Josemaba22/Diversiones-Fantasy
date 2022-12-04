@@ -4,6 +4,7 @@ package com.tec.diversionesfantasy.controller;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,6 +42,11 @@ public class DiversionesFantasyController {
 	
 	@Autowired
 	PedidoService pedidoService;
+	
+	@GetMapping("/")
+	public String holaMundo() {
+		return "Hola Mundo";
+	}
 	
 	@PostMapping("inserta_datos_bd")
 	public void insertaDatosBd() {
