@@ -1,1 +1,1 @@
-web: java jar build/libs/diversionesfantasy-0.0.1-SNAPSHOT.jar
+web: java jar diversionesfantasy-0.0.1-SNAPSHOT.jar
