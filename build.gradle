@@ -34,6 +34,13 @@ implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.
     
 }
 
+jar{
+    manifest{
+        attributes "Main-Class": "diversionesfantasy"
+    }
+
+}
+
 //tasks.named('test') {
 //	useJUnitPlatform()
 //}
