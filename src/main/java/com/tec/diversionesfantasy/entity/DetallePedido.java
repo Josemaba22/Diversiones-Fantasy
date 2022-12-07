@@ -21,6 +21,8 @@ public class DetallePedido {
 	@Id
 	private Long mobiliario_id;
 	
+	private String nombre_mobiliario;
+	
 	private int cantidad;
 	private double precio_unitario;
 
@@ -89,6 +91,14 @@ public class DetallePedido {
 
 	public void setMobiliario(Mobiliario mobiliario) {
 		this.mobiliario = mobiliario;
+	}
+
+	public String getNombre_mobiliario() {
+		return nombre_mobiliario;
+	}
+
+	public void setNombre_mobiliario(String nombre_mobiliario) {
+		this.nombre_mobiliario = nombre_mobiliario;
 	}
 	
 	

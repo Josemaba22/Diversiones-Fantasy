@@ -42,4 +42,15 @@ public class PedidoController {
 		return pedidoService.entregarPedido(id);
 	}
 	
+	@PutMapping("recoger/{id}")
+	public Pedido recogerPedido(@PathVariable Long id) {
+		return pedidoService.recogerPedido(id);
+	}
+	
+	/*
+	@GetMapping("get/por_recoger")
+	public List<Pedido> porRecoger(){
+		return pedidoService.porRecoger();
+	}*/
+	
 }

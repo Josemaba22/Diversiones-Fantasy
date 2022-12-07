@@ -183,6 +183,40 @@ public class Pedido implements Serializable{
 	public void setDescripcion_daños(String descripcion_daños) {
 		this.descripcion_daños = descripcion_daños;
 	}
+
+	public Direccion getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
+
+	public Consumidor getConsumidor() {
+		return consumidor;
+	}
+
+	public void setConsumidor(Consumidor consumidor) {
+		this.consumidor = consumidor;
+	}
+
+	public Empleado getTransportista() {
+		return transportista;
+	}
+
+	public void setTransportista(Empleado transportista) {
+		this.transportista = transportista;
+	}
+
+	public Empleado getAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(Empleado administrador) {
+		this.administrador = administrador;
+	}
+	
+	
 	
 	
 	

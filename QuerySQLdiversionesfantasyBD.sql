@@ -1,5 +1,7 @@
 #CREATE DATABASE diversionesfantasy; 
 #DROP DATABASE diversionesfantasy;
+#INSERT INTO `diversionesfantasy`.`pedidos` (`fecha_creacion`, `fecha_entrega`, `fecha_recoleccion`, `direccion_id`, `consumidor_id`, `transportista_id`, `admin_id`, `estatus`, `descripcion`, `descripcion_daños`) VALUES ('2022-12-01', '2022-12-05', '2022-12-08', '2', '2', '2', '1', 'POR ENTREGAR', 'Casa porton dorado frente al parke', 'SIN DAÑOS');
+
 
 #---------------------------------------------------+
 #					DIRECCIONES						|
@@ -153,6 +155,7 @@ REFERENCES empleados(id);
 CREATE TABLE detalle_pedidos(
 	pedido_id int not null,
     mobiliario_id int not null,
+    nombre_mobiliario VARCHAR(250) not null,
     cantidad int not null,
     precio_unitario numeric(10,2) not null
 );

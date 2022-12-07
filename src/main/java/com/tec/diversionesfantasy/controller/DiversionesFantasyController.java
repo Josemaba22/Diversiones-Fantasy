@@ -93,6 +93,7 @@ public class DiversionesFantasyController {
 		mobiliarioService.addMobiliario(mobiliario5);
 		mobiliarioService.addMobiliario(mobiliario6);
 
+		/*
 		PedidoRequest pedido1 = new PedidoRequest(0L,LocalDate.parse("2022-12-05"), LocalDate.parse("2022-12-08"), 1, 1, 2, 1, "Casa porton dorado frente al parke", "Sin daños resgistrados");
 		DetallePedidoRequest detalle11 = new DetallePedidoRequest(1L, 1L, 10);
 		DetallePedidoRequest detalle12 = new DetallePedidoRequest(1L, 2L, 5);
@@ -101,6 +102,7 @@ public class DiversionesFantasyController {
 		pedido1.detalle_pedido.add(detalle12);
 		pedido1.detalle_pedido.add(detalle13);
 		pedidoService.addPedido(pedido1);
+		*/
 	}
 
 }
