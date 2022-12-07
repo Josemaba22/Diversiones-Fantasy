@@ -37,6 +37,12 @@ public class PedidoService {
 		return pedidoRepository.findById(id).get();
 	}
 	
+	public Pedido entregarPedido(Long id) {
+		Pedido pedido = pedidoRepository.findById(id).get();
+		pedido.setEstatus("POR RECOGER");
+		return pedidoRepository.save(pedido);
+	}
+	
 	public Pedido addPedido(PedidoRequest request) {
 		Pedido pedido = new Pedido();
 		pedido.setId(request.id);
